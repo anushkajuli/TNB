@@ -57,4 +57,13 @@ public class LocalSambaServer extends SambaServer implements Deployable {
         return container.getLogs();
     }
 
+    @Override
+    public void openResources() {
+        super.openResources();
+    }
+
+    @Override
+    public void closeResources() {
+        super.closeResources();
+    }
 }
