@@ -26,7 +26,7 @@ public abstract class Fhir extends ConfigurableService<FhirAccount, NoClient, No
 
     @Override
     public String defaultImage() {
-        return "quay.io/fuse_qe/hapi-fhir:v8.2.0";
+        return "quay.io/fuse_qe/hapi-fhir-auth:v3.0.1"";
     }
 
     @Override
