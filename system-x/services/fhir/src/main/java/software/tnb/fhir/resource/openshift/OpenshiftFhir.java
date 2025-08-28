@@ -96,7 +96,7 @@ public class OpenshiftFhir extends Fhir implements ReusableOpenshiftDeployable, 
 
         final Probe probe = new ProbeBuilder()
             .editOrNewExec()
-            .withCommand("curl", "http://0.0.0.0:8080/fhir/metadata",
+            .withCommand("curl", "http://0.0.0.0:8080/hapi-fhir-jpaserver-example/baseDstu3/metadata",
                 "--header", "\"Authorization: Basic " + authToken + "\"")
             .endExec()
             .withInitialDelaySeconds(60)
@@ -157,7 +157,7 @@ public class OpenshiftFhir extends Fhir implements ReusableOpenshiftDeployable, 
 
     @Override
     public String getServerUrl() {
-        return String.format("http://%s/fhir/", externalHostname());
+        return String.format("http://%s/hapi-fhir-jpaserver-example/", externalHostname());
     }
 
     @Override
