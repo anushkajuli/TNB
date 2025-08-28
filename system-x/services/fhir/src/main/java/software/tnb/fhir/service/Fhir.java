@@ -18,10 +18,10 @@ public abstract class Fhir extends ConfigurableService<FhirAccount, NoClient, No
 
     public Map<String, String> containerEnvironment() {
         return Map.of(
-            "FHIR_VERSION", getConfiguration().fhirVersion(),
-            "AUTH_ENABLED", Boolean.toString(getConfiguration().getFhirAuthEnabled()),
-            "AUTH_USERNAME", account().username(),
-            "AUTH_PASSWORD", account().password());
+            "hapi.fhir.fhir_version", getConfiguration().fhirVersion(),
+            "DISABLE_AUTH", Boolean.toString(getConfiguration().getFhirAuthDisabled()),
+            "FHIR_USER", account().username(),
+            "FHIR_PWD", account().password());
     }
 
     @Override
@@ -32,6 +32,6 @@ public abstract class Fhir extends ConfigurableService<FhirAccount, NoClient, No
     @Override
     protected void defaultConfiguration() {
         getConfiguration().withFhirVersion("R4");
-        getConfiguration().withFhirAuthEnabled(false);
+        getConfiguration().withFhirAuthDisabled(true);
     }
 }
