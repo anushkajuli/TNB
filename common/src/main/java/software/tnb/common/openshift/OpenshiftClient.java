@@ -108,9 +108,9 @@ public class OpenshiftClient extends OpenShift {
         configBuilder
             .withNamespace(namespace)
             .withHttpsProxy(OpenshiftConfiguration.openshiftHttpsProxy())
-            .withBuildTimeout(60_000L)
-            .withRequestTimeout(120_000)
-            .withConnectionTimeout(120_000)
+            .withBuildTimeout(120_000L)
+            .withRequestTimeout(240_000)
+            .withConnectionTimeout(300_000)
             .withTrustCerts(true);
 
         LOG.info("Using cluster {}", configBuilder.getMasterUrl());
