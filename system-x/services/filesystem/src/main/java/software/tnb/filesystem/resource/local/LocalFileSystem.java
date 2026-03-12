@@ -11,6 +11,7 @@ import com.google.auto.service.AutoService;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 
 @AutoService(FileSystem.class)
 public class LocalFileSystem extends FileSystem implements Deployable {
@@ -35,7 +36,22 @@ public class LocalFileSystem extends FileSystem implements Deployable {
     }
 
     @Override
-    public Path createTempDirectory() throws IOException {
-        return Files.createTempDirectory("tnb-filesystem");
+    public Path createDirectory(Path path) throws IOException {
+        return Files.createDirectories(path);
+    }
+
+    @Override
+    public void deleteDirectory(Path directory) throws IOException {
+        FileUtils.deleteDirectory(directory.toFile());
+    }
+
+    @Override
+    public void deleteFile(Path directory, String filename) throws IOException {
+        java.nio.file.Files.deleteIfExists(directory.resolve(filename));
+    }
+
+    @Override
+    public Path getRoot() {
+        return Paths.get("target");
     }
 }

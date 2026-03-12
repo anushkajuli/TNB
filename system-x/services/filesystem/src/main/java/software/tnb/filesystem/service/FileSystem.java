@@ -22,7 +22,13 @@ public abstract class FileSystem extends Service<NoAccount, NoClient, NoValidati
 
     public abstract void copyFile(Path srcPath, Path destPath) throws IOException;
 
-    public abstract Path createTempDirectory() throws IOException;
+    public abstract Path createDirectory(Path path) throws IOException;
+
+    public abstract void deleteDirectory(Path directory) throws IOException;
+
+    public abstract void deleteFile(Path directory, String filename) throws IOException;
+
+    public abstract Path getRoot();
 
     public void deploy() {
     }
