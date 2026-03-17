@@ -26,9 +26,7 @@ public class SFTPValidation implements FileTransferValidation {
         this.account = account;
         System.out.println("=== SFTPValidation initialized ===");
         System.out.println("  baseDir: '" + account.baseDir() + "'");
-        System.out.println("  username: " + account.getUsername());
-        System.out.println("  host: " + account.getHost());
-        System.out.println("  port: " + account.getPort());
+        
     }
 
     @Override
