@@ -159,7 +159,7 @@ public abstract class App {
             WaitUtils.waitFor(new Waiter(() -> isReady() && getLog().containsRegex(integrationBuilder.getStartupRegex()),
                 "Waiting until the integration " + getName() + " is running")
                 .failureCondition(this::isFailed)
-                .retryTimeout(1200000L)
+                .retryTimeout(600000L)
                 .failureException(exception)
             );
             started = true;
