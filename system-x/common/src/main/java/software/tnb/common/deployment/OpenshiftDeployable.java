@@ -30,7 +30,7 @@ public interface OpenshiftDeployable extends Deployable {
     boolean isDeployed();
 
     default long waitTime() {
-        return 300_000;
+        return 660_000;
     }
 
     default PodResource servicePod() {
